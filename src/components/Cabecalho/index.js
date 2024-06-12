@@ -1,9 +1,18 @@
-const Cabecalho = ( {logo} )=> {
+import Logo from "../Logo";
+import Navegacao from "../Navegacao";
+
+const Cabecalho = ()=> {
     return(
-        <h1>
-            <img src={logo} alt='logo'></img>
-            Alura Books
-        </h1>
+        <header style={ {backgroundColor:'#FFF'} }>
+            <div style={ {display:"flex", 
+                         justifyContent: 'space-between',
+                         maxWidth: '1280px',
+                         margin: '0 auto',
+                         alignItems: 'center'} }>
+            <Logo />
+            <Navegacao />
+            </div>
+        </header>
     )
 }
 
