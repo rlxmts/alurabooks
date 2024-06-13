@@ -1,18 +1,30 @@
+import styled from "styled-components";
 import Logo from "../Logo";
 import Navegacao from "../Navegacao";
 
+const CabecalhoContainer = styled.header`
+    background-color: #FFF;
+    padding: 16px;
+
+    .cabecalho-container{
+        display:flex;
+        justify-content: space-between;
+        max-width: 1280px;
+        width:100%;
+        margin: 0 auto;
+        align-items: center;
+        flex-wrap:wrap;
+    }
+`
+
 const Cabecalho = ()=> {
     return(
-        <header style={ {backgroundColor:'#FFF'} }>
-            <div style={ {display:"flex", 
-                         justifyContent: 'space-between',
-                         maxWidth: '1280px',
-                         margin: '0 auto',
-                         alignItems: 'center'} }>
-            <Logo />
-            <Navegacao />
+        <CabecalhoContainer>
+            <div className="cabecalho-container">
+                <Logo />
+                <Navegacao />
             </div>
-        </header>
+        </CabecalhoContainer>
     )
 }
 
