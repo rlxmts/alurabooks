@@ -5,7 +5,7 @@ import { Livros } from "./dadosPesquisa";
 
 const ContainerPesquisa = styled.section`
     width:100%;
-    height: 100%;
+    height: 100vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -19,6 +19,14 @@ const Titulo = styled.h2`
     font-size: 3rem;
 `
 
+const Resultado = styled.div`
+    width:100%;
+    max-width: 200px;
+`
+const ListaDeLivro = styled.ul`
+    display:flex;
+    gap: 16px;
+`
 
 const Pesquisa = ()=> {
 
@@ -31,13 +39,23 @@ const Pesquisa = ()=> {
             <Input 
                 placeholder="Escreva o nome do livro..." 
                 onChange={(e) => {
-                    const busca = e.target.value.toLowerCase();
-                    const resultado = Livros.filter( livro => livro.nome.toLowerCase().includes(busca) )
-                    setLivroPesquisado(resultado);
-                    console.log(livroPesquisado);
+                    if(e.target.value === ''){
+                        setLivroPesquisado([]);
+                    }else{
+                        const busca = e.target.value.toLowerCase();
+                        const resultado = Livros.filter( livro => livro.nome.toLowerCase().includes(busca) )
+                        setLivroPesquisado(resultado);
+                    }
                 }}
             />
-            {/* <p>{textoDigitado}</p> */}
+            <ListaDeLivro>
+                {livroPesquisado.map( livro => (
+                    <Resultado key={livro.nome}>
+                        <p>{livro.nome}</p>
+                        <img src={livro.src} />
+                    </Resultado>
+                ))}
+            </ListaDeLivro>
         </ContainerPesquisa>
     )
 }
