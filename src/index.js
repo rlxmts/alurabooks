@@ -20,11 +20,16 @@ const StyleGlobal = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-image: linear-gradient(90deg, #002F52 35%, #326589);
+
   }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+  }
+
+  .App{
+    height:60vh;
   }
 
 `
