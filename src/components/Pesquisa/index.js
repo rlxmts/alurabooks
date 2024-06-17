@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Input from "../Input";
 import { useState } from "react";
 import { Livros } from "./dadosPesquisa";
+import {Titulo} from "../Titulo";
+import { ListaDeLivro } from "../ListaDeLivros";
 
 const ContainerPesquisa = styled.section`
     width:100%;
@@ -13,19 +15,16 @@ const ContainerPesquisa = styled.section`
     gap: 1rem;
     color: #FFFFFF;
     padding: 1rem;
-`
 
-const Titulo = styled.h2`
-    font-size: 3rem;
+    @media screen and (max-width:1024px){
+        height: auto;
+        padding: 5rem 1.5rem;
+    }
 `
-
 const Resultado = styled.div`
     width:100%;
     max-width: 200px;
-`
-const ListaDeLivro = styled.ul`
-    display:flex;
-    gap: 16px;
+    min-height: 282px;  
 `
 
 const Pesquisa = ()=> {
@@ -34,7 +33,7 @@ const Pesquisa = ()=> {
 
     return(
         <ContainerPesquisa>
-            <Titulo>Ja sabe por onde começar?</Titulo>
+            <Titulo cor="#FFFFFF">Ja sabe por onde começar?</Titulo>
             <h3>Encontre seu livro em nossa estante.</h3>
             <Input 
                 placeholder="Escreva o nome do livro..." 
